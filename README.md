@@ -2,7 +2,7 @@
 
 API RESTful con operaciones CRUD sobre **autores, libros, usuarios y préstamos**,
 construida con **FastAPI + SQLite** (módulo `sqlite3`, sin ORM) y validaciones con
-**Pydantic**. Taller práctico de Bases de Datos I.
+**Pydantic**.
 
 ## Requisitos
 
@@ -68,23 +68,4 @@ tests/               # pruebas con TestClient
 
 ```bash
 cloudflared tunnel --url http://localhost:8000
-```
-
-Copiá la URL `https://*.trycloudflare.com` generada y compartila. Es temporal:
-mantené el túnel activo durante la evaluación.
-
-## Pruebas rápidas con curl
-
-```bash
-# Crear autor
-curl -X POST http://localhost:8000/autores -H "Content-Type: application/json" \
-  -d '{"nombre":"Jorge Luis Borges","nacionalidad":"Argentina"}'
-
-# Crear libro
-curl -X POST http://localhost:8000/libros -H "Content-Type: application/json" \
-  -d '{"titulo":"Ficciones","isbn":"9780307474728","anio_publicacion":1944,"autor_id":1}'
-
-# Registrar préstamo
-curl -X POST http://localhost:8000/prestamos -H "Content-Type: application/json" \
-  -d '{"libro_id":1,"usuario_id":1}'
 ```
